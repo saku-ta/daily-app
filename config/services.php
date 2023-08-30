@@ -20,6 +20,11 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
         'scheme' => 'https',
     ],
+    
+    'openweathermap' => [
+        'key' => env('OPEN_WHATHER_MAP_API_KEY'),
+        'url' => env('OPEN_WHATHER_MAP_URL'),
+    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
