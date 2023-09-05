@@ -12,6 +12,9 @@ class PostController extends Controller
     public function index(Post $post){
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit(5)]);
     }
+    public function calendar(Post $post){
+        return view('posts/calendar')->with(['posts' => $post]);
+    }
     
     public function show(Post $post){
         return view('posts/show')->with(['post' => $post]);

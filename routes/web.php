@@ -24,8 +24,13 @@ Route::controller(WeatherAPIController::class)->middleware(['auth'])->group(func
     Route::get('/posts/weather', 'weatherData')->name('weather');
 });
 
+//Route::get('/posts/calendar', function(){
+//    return view('calendar');
+//});
+
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::get('/posts/calendar','calendar')->name('calendar');
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/{post}', 'show')->name('show');

@@ -21,6 +21,9 @@
                     <x-nav-link href="/posts/weather" :active="request()->routeIs('weather')">
                         {{ __('天気') }}
                     </x-nav-link>
+                    <x-nav-link href="/posts/calendar" :active="request()->routeIs('calendar')">
+                        {{ __('カレンダー') }}
+                    </x-nav-link>
                     
                 </div>
             </div>
