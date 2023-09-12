@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('title',100);
             $table->string('body', 600);
             $table->timestamps();
             $table->softDeletes();
-            
         });
-        
     }
 
     /**

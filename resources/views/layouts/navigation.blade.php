@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('ホーム') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('日記一覧') }}
                     </x-nav-link>
