@@ -26,7 +26,7 @@ class WeatherAPIController extends Controller
         $maindata = $weather_data['list'][0];
         //dd($maindata);
         return view('posts/weather')->with(compact('maindata'));
-            
+        //return view('posts/home')->with(compact('maindata'));
 
         //return view('posts/weather')->with(['weather_data' => $weather_data]);
         //return response()->json($weather_data);

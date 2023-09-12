@@ -1,4 +1,4 @@
-<?php
+<<?php
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
@@ -20,17 +20,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::controller(WeatherAPIController::class)->middleware(['auth'])->group(function(){
     Route::get('/posts/weather', 'weatherData')->name('weather');
+    //Route::get('posts/home', 'weatherData')->name('weather');
 });
 
 //Route::get('/posts/calendar', function(){
-//    return view('calendar');
-//});
+ //   return view('calendar');
+//})->middleware(['auth', 'verified'])->name('calendar');
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
-    Route::get('/posts/calendar','calendar')->name('calendar');
+    Route::get('/posts/home', 'home')->name('home');
+    Route::get('/posts/calendar', 'calendar')->name('calendar');
+    Route::post('/posts/post-get','postGet')->name('post-get');
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/{post}', 'show')->name('show');
