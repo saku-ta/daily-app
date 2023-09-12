@@ -31,8 +31,8 @@ let calendar = new Calendar(calendarEl, {
                 // 追加したイベントを削除
                 calendar.removeAllEvents();
                 // カレンダーに読み込み
-                //successCallback(response.data);
-                console.log(typeof response.data);
+                successCallback(response.data);
+                //console.log(typeof response.data);
             })
             .catch((error) => {
                 if(axios.isAxiosError(error)){
