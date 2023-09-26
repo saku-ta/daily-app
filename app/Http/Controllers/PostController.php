@@ -19,7 +19,7 @@ class PostController extends Controller
         $base_url = config('services.openweathermap.url');
         $city = 'Tokyo';
 
-        $url = "$base_url?units=metric&q=$city&APPID=$API_KEY&lang=ja";
+        $url = "$base_url?units=metric&q=$city&lang=ja&APPID=$API_KEY";
         
         // 接続
         $client = new Client();
@@ -57,12 +57,14 @@ class PostController extends Controller
                 // FullCalendarの形式に合わせる
                 'start_date as start',
                 'end_date as end',
-                'title as title'
+                'title as title',
+                'body as description'
             )
             // FullCalendarの表示範囲のみ表示
             ->where('end_date', '>', $start_date)
             ->where('start_date', '<', $end_date)
-            ->get();
+            ->get()
+            ;
     }
 
     
