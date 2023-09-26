@@ -9,10 +9,10 @@ class WeatherAPIController extends Controller
 {
     public function weatherData() {
         $API_KEY = config('services.openweathermap.key');
-        $base_url = config('services.openweathermap.url');
+        $base_url = config('services.openweathermap2.url');
         $city = 'Tokyo';
 
-        $url = "$base_url?units=metric&q=$city&lang=ja&APPID=$API_KEY";
+        $url = "$base_url?units=metric&q=$city&APPID=$API_KEY&lang=ja";
         
         // 接続
         $client = new Client();
@@ -23,9 +23,9 @@ class WeatherAPIController extends Controller
         //dd($weather_data);
         
         
-        $maindata = $weather_data['list'];
+        $maindata = $weather_data['list'][0];
         //dd($maindata);
-        return view('posts/weather')->with(compact('maindata'));
+        return view('posts/weather')->with(compact('maindata2'));
         //return view('posts/home')->with(compact('maindata'));
 
         //return view('posts/weather')->with(['weather_data' => $weather_data]);

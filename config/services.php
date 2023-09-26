@@ -25,6 +25,10 @@ return [
         'key' => env('OPEN_WHATHER_MAP_API_KEY'),
         'url' => env('OPEN_WHATHER_MAP_URL'),
     ],
+    'openweathermap2' => [
+        'key' => env('OPEN_WHATHER_MAP_API_KEY'),
+        'url' => env('OPEN_WHATHER_MAP2_URL'),
+    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),

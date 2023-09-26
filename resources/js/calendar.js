@@ -4,6 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import axios from 'axios';
+import {Tooltip} from 'bootstrap';
 
 var calendarEl = document.getElementById("calendar");
 
@@ -20,18 +21,24 @@ let calendar = new Calendar(calendarEl, {
     // 日付をクリック、または範囲を選択したイベント
     selectable: true,
     
+    
+    
     events: function (info, successCallback, failureCallback) {
         // Laravelのイベント取得処理の呼び出し
         axios
             .post("/posts/post-get", {
                 start_date: info.start.valueOf(),
                 end_date: info.end.valueOf(),
+                
             })
             .then((response) => {
+                
                 // 追加したイベントを削除
                 calendar.removeAllEvents();
+                console.log('ok');
                 // カレンダーに読み込み
                 successCallback(response.data);
+                
                 //console.log(typeof response.data);
             })
             .catch((error) => {
@@ -43,5 +50,17 @@ let calendar = new Calendar(calendarEl, {
                 failureCallback(error);
             });
     },
+    eventDidMount: function(info){
+        
+        var tooltip = new Tooltip(info.el, {
+            title: info.event.extendedProps.description,
+            placement: 'top',
+            trigger: 'hover',
+            container: 'body',
+            
+            
+        });
+        console.log('This is');
+    }
 });
 calendar.render();

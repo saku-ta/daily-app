@@ -1,6 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1>今日の記録</h1>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            今日の記録
+        </h2>
     </x-slot>
         <form action="/posts" method="POST">
             @csrf
