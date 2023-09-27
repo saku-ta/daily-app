@@ -18,7 +18,7 @@
             
             </h2>
             <br>
-            <h3 class="font-semibold text-xl text-gray-800 leading-tight">3時間ごとの天気</h3>
+            <h3 class="font-semibold text-xl text-gray-800 leading-tight">3時間ごとの天気 (*UTC)</h3>
             <dev class= "flex justify-start text-xl text-gray-800 leading-tight">
             @php
             for($i=0; $i<8; $i++){
